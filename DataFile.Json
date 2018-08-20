@@ -1,0 +1,29 @@
+{
+    "ID":1,"Sort":1,"Name":"每日好货顶","Status":"n",
+    "Forums":[
+        {"ID":3,"Fgroup":4,
+            "Sort":1,"Name":"每日好货3",
+            "ShowName":"","Msg":"msg",
+            "Interval":1,"CreatedAt":"2018-07-20 15:49:28",
+            "UpdateAt":"2018-07-20 15:49:28","Status":"n"
+        },
+        {"ID":4,"Fgroup":4,
+            "Sort":1,"Name":"每日好货4",
+            "ShowName":"","Msg":"msg",
+            "Interval":1,"CreatedAt":"2018-07-20 15:49:28",
+            "UpdateAt":"2018-07-20 15:49:28","Status":"n"
+        },
+        {"ID":2,"Fgroup":4,
+            "Sort":1,"Name":"每日好货2",
+            "ShowName":"","Msg":"msg",
+            "Interval":1,"CreatedAt":"2018-07-20 15:49:28",
+            "UpdateAt":"2018-07-20 15:49:28","Status":"n"
+        },
+        {"ID":5,"Fgroup":4,
+            "Sort":1,"Name":"每日好货5",
+            "ShowName":"","Msg":"msg",
+            "Interval":1,"CreatedAt":"2018-07-20 15:49:28",
+            "UpdateAt":"2018-07-20 15:49:28","Status":"n"
+        }
+    ]
+}
