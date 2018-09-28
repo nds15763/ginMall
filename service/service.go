@@ -33,10 +33,8 @@ func NewService(params *config.Configuration, logger *logger.Logger, location *t
 		logger.Error(err)
 	}
 
+	//第一章写的router，挪到httpserver里
 	httpsvr := httpsvr.NewHttpServer()
-	// if err != nil {
-	// 	logger.Error(err)
-	// }
 
 	service := &Service{
 
