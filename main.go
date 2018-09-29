@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"ginMall/config"
 	"ginMall/logger"
+	"ginMall/service"
 	"os"
 	"time"
 )
@@ -21,9 +22,9 @@ func main() {
 	//解析配置文件
 	params := config.NewConfiguration()
 
-	if len(&cfgFlag) > 0 { //cfgFlag是*string型，取地址符
+	if len(*cfgFlag) > 0 { //cfgFlag是*string型，取地址符
 		//
-		parm.InitFromFile(cfgFlag)
+		params.InitFromFile(*cfgFlag)
 	} else {
 		fmt.Println("配置文件错误，请检查内容格式")
 	}
@@ -43,7 +44,7 @@ func main() {
 	fmt.Println("日志初始化成功!")
 
 	//初始化服务
-	server := "server"
+	server := service.NewService(params, logger, location, *cfgFlag)
 	if server == nil {
 		logger.Error("服务初始化失败")
 		os.Exit(1)
