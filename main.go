@@ -1,15 +1,12 @@
 package main
 
 import (
-	"GinMall/Helper"
 	"flag"
 	"fmt"
 	"ginMall/config"
 	"ginMall/logger"
 	"os"
 	"time"
-
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -54,9 +51,4 @@ func main() {
 
 	//启动服务
 	server.Start()
-
-	// router := gin.Default()
-	// RouterInit(router)
-	// Helper.Dbinit()
-	// router.Run(":8081")
 }
