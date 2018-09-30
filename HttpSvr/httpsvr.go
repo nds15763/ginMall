@@ -2,6 +2,7 @@ package httpsvr
 
 import (
 	"ginMall/FPList"
+	"ginMall/Helper"
 	"ginMall/session"
 	"net/http"
 
@@ -33,6 +34,8 @@ func NewHttpServer() *HttpServer {
 func (this *HttpServer) Start() {
 
 	this.gin.Use(cors.Default())
+
+	this.gin.Use(Helper.IsLogin) //判断是否登录
 
 	this.gin.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "It works On 8081")
