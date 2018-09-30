@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"ginMall/config"
@@ -46,7 +47,7 @@ func main() {
 	//初始化服务
 	server := service.NewService(params, logger, location, *cfgFlag)
 	if server == nil {
-		logger.Error("服务初始化失败")
+		logger.Error(errors.New("服务初始化失败"))
 		os.Exit(1)
 	}
 
