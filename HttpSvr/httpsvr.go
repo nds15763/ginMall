@@ -4,6 +4,7 @@ import (
 	_ "ginMall/FPList"
 	"ginMall/Helper"
 	"ginMall/session"
+	"ginMall/Controller"
 	"net/http"
 
 	"github.com/gin-contrib/cors"
@@ -43,6 +44,7 @@ func (this *HttpServer) Start() {
 	this.gin.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "It works On 8081")
 	})
-	// this.gin.GET("/Login", FPList.GetList)
-	// this.gin.GET("/FPList", FPList.GetList)
+
+	this.gin.GET("/ws", Controller.Upload)
+
 }

@@ -64,6 +64,6 @@ func Login(c *gin.Context) {
 	}
 
 	response := Token{tokenString}
-	Helper.JsonResponse(response, w)
+	Helper.JsonResponse(response, c.Writer)
 
 }
