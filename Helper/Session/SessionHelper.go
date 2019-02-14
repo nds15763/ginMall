@@ -83,3 +83,7 @@ func (manager *Manager) SessionStart(w http.ResponseWriter, r *http.Request) (se
 	}
 	return
 }
+
+func (manager *Manager) Get(w http.ResponseWriter, r *http.Request) interface{} {
+	return nil
+}
