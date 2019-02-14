@@ -1,18 +1,20 @@
 package httpsvr
 
 import (
-	"ginMall/FPList"
+	_ "ginMall/FPList"
 	"ginMall/Helper"
 	"ginMall/session"
 	"net/http"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 type HttpServer struct {
 	gin     *gin.Engine
 	session *session.Session
+	websrv *websocket.Upgrader
 }
 
 //HTTPserver包含几大部分功能
@@ -22,13 +24,14 @@ type HttpServer struct {
 //3：保存service层及其他信息
 func NewHttpServer() *HttpServer {
 
-	session := session.NewSession()
-
-	svr := &HttpServer{
+	return &HttpServer{
 		gin:     gin.Default(),
-		session: session,
+		session: session.NewSession(),
+		websrv: &websocket.Upgrader{//初始化webservice
+			ReadBufferSize:  1024,
+			WriteBufferSize: 1024,
+		},
 	}
-	return svr
 }
 
 func (this *HttpServer) Start() {
@@ -40,6 +43,6 @@ func (this *HttpServer) Start() {
 	this.gin.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "It works On 8081")
 	})
-	this.gin.GET("/Login", FPList.GetList)
-	this.gin.GET("/FPList", FPList.GetList)
+	// this.gin.GET("/Login", FPList.GetList)
+	// this.gin.GET("/FPList", FPList.GetList)
 }

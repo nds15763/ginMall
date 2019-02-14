@@ -5,7 +5,7 @@ import (
 	"ginMall/Helper/Constant"
 	"net/http"
 
-	"ginMall/Helper/Session"
+	Session "ginMall/Helper/Session"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
@@ -24,10 +24,11 @@ func IsLogin(c *gin.Context) {
 	if err == nil {
 
 		if token.Valid {
-			if user := Session.Get(); user != nil {
+			if user := Session.Get(nil,nil); user != nil {
 				//7.读取用户的id值
 				id := getIdFromToken(token)
 				//8.应用从数据库取到用户的信息，加载到内存中，进行ORM之类的一系列底层逻辑初始化。
+				_ = id
 			} else {
 				//9.应用根据用户请求进行响应
 				c.Next()
